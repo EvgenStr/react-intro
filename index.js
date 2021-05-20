@@ -13,15 +13,22 @@ const container = document.getElementById("root");
 
 class Heading extends React.Component {
   render() {
+    const { name, className, children } = this.props;
     return React.createElement(
       "h1",
       {
         title: "Hello react",
-        className: "heading",
+        className: className,
       },
-      "hello react js"
+      `hello ${name}`,
+      ...children
     );
   }
 }
-const reactElement = React.createElement(Heading)
+const reactElement = React.createElement(
+  Heading,
+  { name: "js", className: "heading" },
+  "test lorem",
+  "children"
+);
 ReactDOM.render(reactElement, container);
